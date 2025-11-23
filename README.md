@@ -52,11 +52,38 @@ Model Waveform
 <img width="706" height="167" alt="image" src="https://github.com/user-attachments/assets/bff0d8fd-d679-444e-af37-0b34585853c1" />
 
 Program
-
+```
+Am=9.2;
+fm=400;
+Ac=18.4;
+fc=4000;
+fs=400000;
+t=0:1/fs:2/fm;
+Em=Am*sin(2*3.14*fm*t);
+subplot(4,1,1);
+plot(t,Em);
+xgrid;
+Ec=Ac*sin(2*3.14*fc*t);
+subplot(4,1,2);
+plot(t,Ec);
+xgrid;
+Edsbsc1=(Am/2.*cos(2*3.14*fc*t-2*3.14*fm*t))-(Am/2.*cos(2*3.14*fc*t+2*3.14*fm*t));
+Edsbsc2=(Am/2.*cos(2*3.14*fc*t-2*3.14*fm*t))+(Am/2.*cos(2*3.14*fc*t+2*3.14*fm*t));
+Elsb=Edsbsc1+Edsbsc2;
+subplot(4,1,3);
+plot(t,Elsb);
+Eusb=Edsbsc1-Edsbsc2;
+subplot(4,1,4);
+plot(t,Eusb);
+xgrid;
+```
 OUTPUT WAVEFORM
+
+<img width="610" height="460" alt="image" src="https://github.com/user-attachments/assets/24db259f-2553-4458-bb74-e1cbfd74d1c5" />
 
 TABULATION
 
+<img width="1600" height="1477" alt="image" src="https://github.com/user-attachments/assets/ae40c703-7c03-4263-b898-74b67476aa7f" />
 
 
 
